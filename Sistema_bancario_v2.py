@@ -68,32 +68,33 @@ while True :
 [5]Nova conta
 [0]Sair
 """))
-if (menu == 1):
-    valor = float(input("Digite a quantia do deposito: "))
-    saldo,extrato = deposito(saldo,valor,extrato)
-elif (menu == 2):
-    valor = float(input("informe o valor do saque: "))
-    saldo, extrato = saque(
-        saldo=saldo,
-        valor=valor,
-        extrato=extrato,
-        limite=limite,
-        numeros_saques=numeros_saques,
-        LIMITE_SAQUES=LIMITE_SAQUES,
-    )
-elif (menu == 3):
+    if (menu == 1):
+        valor = float(input("Digite a quantia do deposito: "))
+        saldo,extrato = deposito(saldo,valor,extrato)
+    elif (menu == 2):
+        valor = float(input("informe o valor do saque: "))
+        saldo, extrato = saque(
+            saldo=saldo,
+            valor=valor,
+            extrato=extrato,
+            limite=limite,
+            numeros_saques=numeros_saques,
+            LIMITE_SAQUES=LIMITE_SAQUES,
+        )
+    elif (menu == 3):
         print("--------------EXTRATO--------------")
         print("Não foram realizados movimentações."if not extrato else extrato)
         print(f"\nSaldo: R$ {saldo:.2f}")
         print("-------------------------------------")
-elif (menu == 4):
+    elif (menu == 4):
         criar_usuario(usuarios)
-elif (menu == 5):
-    numero_conta = len(contas) + 1
-    conta = criar_conta(AGENCIA,numero_conta,usuarios)
-    if conta:
-        contas.append(conta)
-elif (menu == 0):
-    break
-else:
-    print("Opção invalida! Escolha outra opção.")
+    elif (menu == 5):
+        numero_conta = len(contas) + 1
+        conta = criar_conta(AGENCIA,numero_conta,usuarios)
+        if conta:
+            contas.append(conta)
+    elif (menu == 0):
+        break
+    else:
+        print("Opção invalida! Escolha outra opção.")
+    
